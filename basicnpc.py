@@ -4,10 +4,10 @@ import random
 randgend = (random.randint(1,100))
 if randgend < 49:
     gender = 'Male'
-elif if randgend < 98:
+elif randgend < 98:
     gender = 'Female'
 else: 
-    gender = 'Other'
+    gender = 'Trans/Nonbinary'
 
 #age
 randage = (random.randint(1,3))
@@ -39,7 +39,7 @@ featureslist ={1: 'Unremarkable',
 6: 'Extremely tanned',
 7: 'Strong accent',
 8: 'Broken nose',
-9: 'Wild hair',
+9: 'Wild haired',
 10:'Untrustworthy smile'}
 
 #attitude
@@ -58,8 +58,8 @@ attitudelist = {
 }
 
 
-print(gender)
 print(age) 
-print (nationality)
 print(featureslist[randfeature])
+print(gender)
+print (nationality)
 print(attitudelist[randattitude])
