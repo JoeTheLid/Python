@@ -17,13 +17,15 @@ else:
     age = 'Old'
 
 #Nationality
-randnationality = (random.randint(1,10))
-if randnationality < 6:
+randnationality = (random.randint(1,100))
+if randnationality < 70:
     nationality = 'Local'
-elif randnationality < 10:
+elif randnationality < 90:
     nationality = 'Foreign neighbour'
-else: 
+elif randnationality < 98: 
     nationality = 'From distant lands'
+else:
+    nationality = 'Not human'
 
 #features
 randfeature = (random.randint(1,10))
