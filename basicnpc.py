@@ -39,17 +39,28 @@ def npcOrigin():
         return(nationality)
 def npcFeatures():
     #features
-    randfeature = (random.randint(1,10))
+    randfeature = (random.randint(1,21))
     featureslist ={1: 'Unremarkable',
     2: 'Attractive',
     3: 'Stoop backed',
-    4: 'Noticeable limp',
-    5: 'Freckles',
+    4: 'Injured: Noticeable limp',
+    5: 'Freckled',
     6: 'Extremely tanned',
-    7: 'Strong accent',
-    8: 'Broken nose',
+    7: 'Speaking with a strong accent',
+    8: 'Injured: Broken nose',
     9: 'Wild haired',
-    10:'Untrustworthy smile'}
+    10:'Bearing an untrustworthy smile',
+    11:'Carrying a child',
+    12:'Badly pockmarked',
+    13:'Strangely attired',
+    14:'Extremely tall',
+    15:'Extremely short',
+    16: 'Blind',
+    17: 'Deaf',
+    18: 'Mute',
+    19: 'Surrounded by animals',
+    20: 'Cursed',
+    21: 'Blessed'}
     return(featureslist[randfeature])
 def npcAttitude():
     #attitude
@@ -68,7 +79,7 @@ def npcAttitude():
     }
     return(attitudelist[randattitude])
 def quicknpc():
-    return 'A {} {} from {} who is/has {} and is {}'.format(npcAge(),npcGender(),npcOrigin(),npcFeatures(),npcAttitude())
+    return 'A {} {} from {} who is {} and is {}'.format(npcAge(),npcGender(),npcOrigin(),npcFeatures(),npcAttitude())
 
 client = discord.Client()
 
