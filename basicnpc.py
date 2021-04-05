@@ -1,11 +1,13 @@
 import random
 
 #gender
-randgend = (random.randint(1,2))
-if randgend == 1:
+randgend = (random.randint(1,100))
+if randgend < 49:
     gender = 'Male'
-else: 
+elif if randgend < 98:
     gender = 'Female'
+else: 
+    gender = 'Other'
 
 #age
 randage = (random.randint(1,3))
