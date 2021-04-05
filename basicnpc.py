@@ -1,5 +1,8 @@
 import random
 import discord
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 def npcGender():
     randgend = (random.randint(1,100))
@@ -91,4 +94,4 @@ async def on_message(message):
     if message.content.startswith('$npc'):
         await message.channel.send('{}'.format(quicknpc()))
 
-client.run('ODI4NTI3ODcwMjEyOTY0MzYy.YGq4tQ.XQKo7vl_0PRcy26WuZHdisLvsOc')
+client.run(os.getenv('TOKEN'))
