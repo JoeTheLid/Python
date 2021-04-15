@@ -11,7 +11,7 @@ def npcGender():
     elif randgend < 98:
         gender = 'Female'
     else:
-        gender = 'Trans/Nonbinary'
+        gender = 'Trans/Nonbinary person'
     return gender
 def npcAge():
 #age
@@ -78,8 +78,57 @@ def npcAttitude():
     10: 'Hostile (Prejudiced against someone)'
     }
     return(attitudelist[randattitude])
-def quicknpc():
-    return 'A {} {} from {} who is {} and is {}'.format(npcAge(),npcGender(),npcOrigin(),npcFeatures(),npcAttitude())
+def quicknpc(age = 'Unspecified', gender = 'Unspecified', origin = 'Unspecified'):
+    if age == 'Unspecified':
+        randNPCage = npcAge()
+    else:
+        randNPCage = age
+    if gender == 'Unspecified':
+        randNPCgender = npcGender()
+    else:
+        randNPCgender = gender
+    if origin == 'Unspecified':
+        randNPCorigin = npcOrigin()
+    else:
+        randNPCorigin = origin
+    return 'A {0} {1} from {2} who is {3} and is {4}'.format(randNPCage,randNPCgender,randNPCorigin,npcFeatures(),npcAttitude())
+
+def spAge(message):
+    if 'young' in message.content:
+            specAge = 'young'
+    elif 'middle' in message.content:
+            specAge = 'middle-aged'
+    elif 'old' in message.content:
+            specAge = 'old'
+    else:
+            specAge = 'Unspecified'
+    return specAge
+
+def spGender(message):
+    if 'female' in message.content:
+               spGender = 'female'
+    elif 'male' in message.content:
+            spGender = 'male'
+    elif 'other' in message.content:
+            spGender = 'Trans/Nonbinary person'
+    else:
+            spGender = 'Unspecified'
+    return spGender
+
+def spOrigin(message):
+    if 'local' in message.content:
+            spOrigin = 'local'
+    elif 'far' in message.content:
+            spOrigin = 'other parts of the country'
+    elif 'neighbour' in message.content:
+            spOrigin = 'a foreign neighbour'
+    elif 'foreign' in message.content:
+            spOrigin = 'distant lands'
+    elif 'inhuman' in message.content:
+            spOrigin = 'inhuman realms'
+    else:
+            spOrigin = 'Unspecified'
+    return spOrigin
 
 client = discord.Client()
 
@@ -103,6 +152,6 @@ async def on_message(message):
     if message.content.startswith('$attitude'):
         await message.channel.send('{}'.format(npcAttitude()))
     if message.content.startswith('$npc'):
-        await message.channel.send('{}'.format(quicknpc()))
+        await message.channel.send('{}'.format(quicknpc(spAge(message),spGender(message),spOrigin(message))))
 
 client.run(os.getenv('TOKEN'))
